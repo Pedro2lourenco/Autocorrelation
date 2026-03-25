@@ -56,19 +56,29 @@ These quantities are required to normalize the autocorrelation function.
 
 ---
 
-### 3. Autocorrelation Function
+### 3.. Autocorrelation Function $A(k)$
 
-For each lag $k$, the autocorrelation is computed as:
+The autocorrelation function $A(k)$ measures the correlation between the time series and a lagged version of itself.
 
-- $k = 0$: variance of the series  
-- $k > 0$: correlation between the series and a shifted version of itself  
-
-The result is normalized by the variance, producing the **autocorrelation function** $A(k)$, with:
+For a given lag $k$, it is computed as:
 
 $$
-A(0) = 1
+A(k) = \frac{\langle (x_i - \bar{x})(x_{i+k} - \bar{x}) \rangle}{\sigma^2}
 $$
 
+where:
+
+- $\bar{x}$ is the sample mean  
+- $\sigma^2$ is the sample variance  
+- $\langle \cdot \rangle$ denotes an average over all valid pairs  
+
+In practice:
+
+- For $k = 0$, $A(0) = 1$ by definition  
+- For $k > 0$, the average is taken over pairs separated by $k$ steps  
+- The number of terms decreases with increasing $k$, which increases statistical noise  
+
+This function quantifies how correlations decay with distance in the time series.
 ---
 
 ### 4. Integrated Autocorrelation Time
