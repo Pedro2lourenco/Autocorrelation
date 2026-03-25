@@ -16,7 +16,7 @@ The **integrated autocorrelation time** $$ \tau $$ quantifies how many steps are
 
 ## 🧠 What is the Integrated Autocorrelation Time?
 
-Given a normalized autocorrelation function $$ A(k) $$, the integrated autocorrelation time is defined as:
+Given a normalized autocorrelation function $ A(k) $, the integrated autocorrelation time is defined as:
 
 $$
 \tau = \frac{1}{2} + \sum_{k=1}^{k_{\max}} A(k)
@@ -24,9 +24,9 @@ $$
 
 It measures the persistence of correlations in the data:
 
-- $$ \tau \approx 0.5 $$ → nearly uncorrelated data  
-- large $$ \tau $$ → strong correlations  
-- effective number of independent samples is reduced by a factor $$ \sim 2\tau $$  
+- $ \tau \approx 0.5 $ → nearly uncorrelated data  
+- large $ \tau $ → strong correlations  
+- effective number of independent samples is reduced by a factor $\sim 2\tau$  
 
 ---
 
@@ -58,12 +58,12 @@ These quantities are required to normalize the autocorrelation function.
 
 ### 3. Autocorrelation Function
 
-For each lag $$ k $$, the autocorrelation is computed as:
+For each lag $ k $, the autocorrelation is computed as:
 
-- $$ k = 0 $$: variance of the series  
-- $$ k > 0 $$: correlation between the series and a shifted version of itself  
+- $ k = 0 $: variance of the series  
+- $ k > 0 $: correlation between the series and a shifted version of itself  
 
-The result is normalized by the variance, producing the **autocorrelation function** $$ A(k) $$, with:
+The result is normalized by the variance, producing the **autocorrelation function** $ A(k) $, with:
 
 $$
 A(0) = 1
@@ -73,7 +73,7 @@ $$
 
 ### 4. Integrated Autocorrelation Time
 
-The integrated autocorrelation time is estimated by summing $$ A(k) $$ up to a fixed cutoff $$ k_{\max} $$:
+The integrated autocorrelation time is estimated by summing $ A(k) $ up to a fixed cutoff $ k_{\max} $:
 
 $$
 \tau = \frac{1}{2} + \sum_{k=0}^{k_{\max}} A(k)\left(1 - \frac{k_{\max}}{N}\right)
@@ -81,8 +81,8 @@ $$
 
 where:
 
-- $$ N $$ is the length of the time series  
-- $$ k_{\max} $$ is the maximum lag considered  
+- $ N $ is the length of the time series  
+- $ k_{\max} $ is the maximum lag considered  
 
 ---
 
@@ -100,9 +100,9 @@ This term reduces the contribution of the sum when the maximum lag becomes compa
 
 ### Why this matters:
 
-- For large $$ k $$, fewer data pairs are available → higher statistical noise  
+- For large $ k $, fewer data pairs are available → higher statistical noise  
 - The correction acts as a **finite-size damping factor**  
-- It helps prevent overestimation of $$ \tau $$ due to noisy long-range correlations  
+- It helps prevent overestimation of $ \tau $ due to noisy long-range correlations  
 
 This is a simplified way to control truncation effects without implementing adaptive windowing schemes.
 
@@ -111,7 +111,7 @@ This is a simplified way to control truncation effects without implementing adap
 ## ⚠️ Notes
 
 - The method assumes the time series is **stationary**  
-- The choice of $$ k_{\max} $$ is fixed and may influence the estimate  
+- The choice of $ k_{\max} $ is fixed and may influence the estimate  
 - For highly correlated systems, more sophisticated windowing procedures may be preferable  
 
 ---
